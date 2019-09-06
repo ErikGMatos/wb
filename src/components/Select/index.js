@@ -3,13 +3,14 @@ import Select from 'react-select';
 
 const colourStyles = {
   // estilos do select em si
-  control: styles => ({
+  control: (styles, state) => ({
     ...styles,
+    border: state.isFocused ? '2px solid #666' : '2px solid #dfe0e7',
     backgroundColor: 'white',
     boxShadow: 'none',
-    border: '2px solid #DFE0E7',
+
     '&:hover': {
-      border: '2px solid #DFE0E7',
+      border: '2px solid #dfe0e7',
     },
   }),
 
@@ -40,6 +41,6 @@ export default ({ options, placeholder, ...props }) => (
     label="Single select"
     options={options}
     styles={colourStyles}
-    placeholder={props.placeholder ? props.placeholder : 'Selecione'}
+    placeholder={placeholder || 'Selecione'}
   />
 );

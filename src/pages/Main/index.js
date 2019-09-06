@@ -65,14 +65,17 @@ export default class Main extends Component {
 
             <ContainerSelect>
               <div>
-                <Select options={data} placeholder="Select a fruit" />
-                <Select options={data} />
-                <Select options={data} />
+                <div>
+                  <Select options={data} placeholder="Onde" />
+                  <Select options={data} placeholder="Raio" />
+                </div>
+                <Select options={data} placeholder="Marca" />
+                <Select options={data} placeholder="Modelo" />
               </div>
               <div>
-                <Select options={data} />
-                <Select options={data} />
-                <Select options={data} />
+                <Select options={data} placeholder="Ano Desejado" />
+                <Select options={data} placeholder="Faixa de Preço" />
+                <Select options={data} placeholder="Versão" />
               </div>
             </ContainerSelect>
 

@@ -31,7 +31,7 @@ export const StyledCheckbox = styled.div`
   margin: 0 0.9rem 0 0;
   background: #fff;
   border-radius: 2px;
-  border: 1.5px solid #999;
+  border: 1px solid #b6bac8;
   transition: all 150ms;
 
   ${Icon} {

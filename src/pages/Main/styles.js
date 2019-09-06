@@ -22,8 +22,26 @@ export const ContainerSelect = styled.div`
     }
     &:nth-child(1) {
       > div:nth-child(1) {
+        display: flex;
         flex: 0.5;
         margin-left: 0;
+
+        > div:nth-child(1) {
+          flex: 0.7;
+          [class$='control'] {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        > div:nth-child(2) {
+          flex: 0.3;
+          [class$='control'] {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-width: 0;
+          }
+        }
       }
 
       > div:nth-child(2) {
@@ -65,6 +83,7 @@ export const AdvancedSearch = styled.div`
   a {
     text-decoration: none;
     color: #f3123c;
+    font-size: 1.6rem;
     font-weight: bold;
     text-transform: capitalize;
   }
@@ -86,6 +105,7 @@ export const FilterClear = styled.button.attrs({
 })`
   border: none;
   background: none;
+  font-size: 1.6rem;
   color: #999;
   margin-right: 4rem;
 `;
@@ -101,4 +121,10 @@ export const SeeOffers = styled.button.attrs({
   border-radius: 3px;
   font-weight: bold;
   text-transform: uppercase;
+  box-shadow: 0 8px 12px -8px #f3123c;
+  transition: background 0.15s ease-in-out;
+
+  &:hover {
+    background: #d50b30;
+  }
 `;

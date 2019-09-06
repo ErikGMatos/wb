@@ -140,9 +140,9 @@ export default class Main extends Component {
                 onClick={() => this.handleCarOrMotorcycle(index)}
               >
                 {filter.active ? (
-                  <FaCarSide size={25} color="#999" />
+                  <FaCarSide size={25} />
                 ) : (
-                  <FaMotorcycle size={25} color="#999" />
+                  <FaMotorcycle size={25} />
                 )}
                 <TitleVehicles>
                   <small>comprar</small>

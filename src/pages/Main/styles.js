@@ -141,16 +141,23 @@ export const ChooseType = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  svg {
+    color: #b5b5bf;
+  }
   > div:nth-child(${props => props.active + 1}) {
     border-bottom: 3px solid #f3123c;
 
-    ${props =>
-      props.active &&
-      css`
-        svg {
-          color: #f3123c!important;
-        }
-      `}
+    svg {
+      color: #f3123c;
+    }
+
+    h1 {
+      color: #f3123c;
+      small {
+        color: #b5b5bf;
+      }
+    }
   }
 `;
 

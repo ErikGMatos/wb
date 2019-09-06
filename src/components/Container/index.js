@@ -1,23 +1,12 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.main`
   max-width: 933px;
   height: 312px;
   background: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 25px 60px;
   margin: 80px auto;
-
-  h1 {
-    font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    svg {
-      margin-right: 10px;
-    }
-  }
 `;
 export default Container;

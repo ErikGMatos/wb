@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import Container from '../../components/Container';
 import Checkbox from '../../components/Checkbox';
-import { Form, Logo } from './styles';
+import Select from '../../components/Select';
+import { data } from '../../components/Select/data';
+import { Form, Logo, Header, ContainerSelect, GroupSelect } from './styles';
 
 export default class Main extends Component {
   state = {
-    checked: true,
+    newCarChecked: false,
+    usedCarChecked: false,
   };
 
   // Carregar os dados do localStorage
@@ -16,24 +19,24 @@ export default class Main extends Component {
   // componentDidUpdate(_, prevState) {}
 
   handleInputChange = e => {
-    this.setState({ checked: e.target.checked });
+    this.setState({ [e.target.name]: e.target.checked });
   };
 
   render() {
-    const { checked } = this.state;
+    const { newCarChecked, usedCarChecked } = this.state;
 
     return (
       <>
-        <header>
+        <Header>
           <Logo />
-          {checked && <h1>EU ESTOU CHECADO</h1>}
-        </header>
+        </Header>
         <Container>
           <Form onSubmit={this.handleSubmit} error={null}>
             <label htmlFor="new">
               <Checkbox
                 id="new"
-                checked={checked}
+                name="newCarChecked"
+                checked={newCarChecked}
                 onChange={this.handleInputChange}
               />
               Novos
@@ -41,11 +44,24 @@ export default class Main extends Component {
             <label htmlFor="used">
               <Checkbox
                 id="used"
-                checked={checked}
+                name="usedCarChecked"
+                checked={usedCarChecked}
                 onChange={this.handleInputChange}
               />
               Usados
             </label>
+            <ContainerSelect>
+              <GroupSelect>
+                <Select options={data} />
+                <Select options={data} />
+                <Select options={data} />
+              </GroupSelect>
+              <GroupSelect>
+                <Select options={data} />
+                <Select options={data} />
+                <Select options={data} />
+              </GroupSelect>
+            </ContainerSelect>
           </Form>
         </Container>
       </>

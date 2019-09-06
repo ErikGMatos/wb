@@ -7,6 +7,6 @@ const Container = styled.main`
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1);
   padding: 25px 60px;
-  margin: 80px auto;
+  margin: 0 auto;
 `;
 export default Container;

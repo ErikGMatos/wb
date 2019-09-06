@@ -5,12 +5,12 @@ const colourStyles = {
   // estilos do select em si
   control: (styles, state) => ({
     ...styles,
-    border: state.isFocused ? '2px solid #666' : '2px solid #dfe0e7',
+    border: state.isFocused ? '1px solid #666' : '1px solid #b6bac8',
     backgroundColor: 'white',
     boxShadow: 'none',
 
     '&:hover': {
-      border: '2px solid #dfe0e7',
+      border: '1px solid #b6bac8',
     },
   }),
 

@@ -14,6 +14,13 @@ import {
   AdvancedSearch,
   FilterClear,
   SeeOffers,
+  ChooseType,
+  ChooseVehicle,
+  Car,
+  MotorCycle,
+  TitleCar,
+  TitleMotorCycle,
+  ButtonSellCar,
 } from './styles';
 
 export default class Main extends Component {
@@ -40,6 +47,23 @@ export default class Main extends Component {
         <Header>
           <Logo />
         </Header>
+        <ChooseVehicle>
+          <ChooseType>
+            <Car>
+              <TitleCar>
+                <small>comprar</small>
+                Carros
+              </TitleCar>
+            </Car>
+            <MotorCycle>
+              <TitleMotorCycle>
+                <small>comprar</small>
+                Carros
+              </TitleMotorCycle>
+            </MotorCycle>
+          </ChooseType>
+          <ButtonSellCar>vender meu carro</ButtonSellCar>
+        </ChooseVehicle>
         <Container>
           <Form onSubmit={this.handleSubmit} error={null}>
             <GroupCheckbox>

@@ -128,3 +128,14 @@ export const SeeOffers = styled.button.attrs({
     background: #d50b30;
   }
 `;
+
+export const ChooseVehicle = styled.div`
+  max-width: 933px;
+  margin: 0 auto;
+`;
+export const ChooseType = styled.div``;
+export const Car = styled.div``;
+export const MotorCycle = styled.div``;
+export const TitleCar = styled.h1``;
+export const TitleMotorCycle = styled.h2``;
+export const ButtonSellCar = styled.div``;

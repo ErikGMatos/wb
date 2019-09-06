@@ -35,12 +35,13 @@ const colourStyles = {
   }),
 };
 
-export default ({ options, placeholder, ...props }) => (
+export default ({ options, placeholder, onChange, ...props }) => (
   <Select
     drop
     label="Single select"
     options={options}
     styles={colourStyles}
     placeholder={placeholder || 'Selecione'}
+    onChange={onChange}
   />
 );

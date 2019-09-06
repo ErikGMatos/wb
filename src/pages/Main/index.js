@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import { MdChevronRight } from 'react-icons/md';
+import { FaCarSide, FaMotorcycle } from 'react-icons/fa';
 import Container from '../../components/Container';
 import Checkbox from '../../components/Checkbox';
 import Select from '../../components/Select';
-import { data } from '../../components/Select/data';
+import api from '../../services/api';
 import {
   Form,
   Logo,
@@ -25,22 +26,99 @@ import {
 
 export default class Main extends Component {
   state = {
-    newCarChecked: false,
-    usedCarChecked: false,
+    error: false,
+    make: [],
+    makeID: null,
+    model: [],
+    modelID: null,
+    version: [],
+    versionID: null,
   };
 
   // Carregar os dados do localStorage
-  componentDidMount() {}
+  async componentDidMount() {
+    try {
+      this.loadMake();
+    } catch (err) {
+      this.setState({ error: err.message });
+    }
+  }
 
-  // Salvar os dados no localStorage
-  // componentDidUpdate(_, prevState) {}
+  componentDidUpdate(_, prevState) {
+    const { makeID, modelID } = this.state;
+    if (prevState.makeID !== makeID) {
+      this.loadModel();
+      this.removeOption();
+    }
+
+    if (prevState.modelID !== modelID && !!modelID) {
+      this.loadVersion();
+    }
+  }
+
+  removeOption = () => {
+    this.setState({ version: [], versionID: null });
+  };
+
+  removeAllFilters = () => {
+    this.setState({
+      model: [],
+      modelID: null,
+      version: [],
+      versionID: null,
+    });
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.checked });
   };
 
+  handleSelect = e => {
+    this.setState({ [e.name]: e.id });
+  };
+
+  loadMake = async () => {
+    const response = await api.get('/Make');
+    const { data } = response;
+    const newMake = data.map(m => ({
+      id: m.ID,
+      label: m.Name,
+      name: 'makeID',
+    }));
+
+    this.setState({ make: [...newMake] });
+  };
+
+  loadModel = async () => {
+    const { makeID } = this.state;
+
+    const response = await api.get(`/Model?MakeID=${makeID}`);
+    const { data } = response;
+    const newModel = data.map(m => ({
+      id: m.ID,
+      label: m.Name,
+      name: 'modelID',
+    }));
+
+    this.setState({ model: [...newModel] });
+  };
+
+  loadVersion = async () => {
+    const { modelID } = this.state;
+
+    const response = await api.get(`/Version?ModelID=${modelID}`);
+    const { data } = response;
+    const newVersion = data.map(m => ({
+      id: m.ID,
+      label: m.Name,
+      name: 'versionID',
+    }));
+
+    this.setState({ version: [...newVersion] });
+  };
+
   render() {
-    const { newCarChecked, usedCarChecked } = this.state;
+    const { error, make, model, version } = this.state;
 
     return (
       <>
@@ -50,12 +128,14 @@ export default class Main extends Component {
         <ChooseVehicle>
           <ChooseType>
             <Car>
+              <FaCarSide size={20} color="#f3123c" />
               <TitleCar>
                 <small>comprar</small>
                 Carros
               </TitleCar>
             </Car>
             <MotorCycle>
+              <FaMotorcycle size={20} color="#f3123c" />
               <TitleMotorCycle>
                 <small>comprar</small>
                 Carros
@@ -65,13 +145,13 @@ export default class Main extends Component {
           <ButtonSellCar>vender meu carro</ButtonSellCar>
         </ChooseVehicle>
         <Container>
-          <Form onSubmit={this.handleSubmit} error={null}>
+          <Form onSubmit={this.handleSubmit} error={error}>
             <GroupCheckbox>
               <label htmlFor="new">
                 <Checkbox
                   id="new"
                   name="newCarChecked"
-                  checked={newCarChecked}
+                  checked
                   onChange={this.handleInputChange}
                 />
                 Novos
@@ -80,7 +160,7 @@ export default class Main extends Component {
                 <Checkbox
                   id="used"
                   name="usedCarChecked"
-                  checked={usedCarChecked}
+                  checked
                   onChange={this.handleInputChange}
                 />
                 Usados
@@ -90,16 +170,28 @@ export default class Main extends Component {
             <ContainerSelect>
               <div>
                 <div>
-                  <Select options={data} placeholder="Onde" />
-                  <Select options={data} placeholder="Raio" />
+                  <Select options={null} placeholder="Onde" />
+                  <Select options={null} placeholder="Raio" />
                 </div>
-                <Select options={data} placeholder="Marca" />
-                <Select options={data} placeholder="Modelo" />
+                <Select
+                  options={make}
+                  placeholder="Marca"
+                  onChange={this.handleSelect}
+                />
+                <Select
+                  options={model}
+                  placeholder="Modelo"
+                  onChange={this.handleSelect}
+                />
               </div>
               <div>
-                <Select options={data} placeholder="Ano Desejado" />
-                <Select options={data} placeholder="Faixa de Preço" />
-                <Select options={data} placeholder="Versão" />
+                <Select options={null} placeholder="Ano Desejado" />
+                <Select options={null} placeholder="Faixa de Preço" />
+                <Select
+                  options={version}
+                  placeholder="Versão"
+                  onChange={this.handleSelect}
+                />
               </div>
             </ContainerSelect>
 
@@ -110,7 +202,9 @@ export default class Main extends Component {
               </div>
 
               <div>
-                <FilterClear>Limpar filtros</FilterClear>
+                <FilterClear onClick={this.removeAllFilters}>
+                  Limpar filtros
+                </FilterClear>
                 <SeeOffers>Ver ofertas</SeeOffers>
               </div>
             </AdvancedSearch>

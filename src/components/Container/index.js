@@ -8,5 +8,9 @@ const Container = styled.main`
   box-shadow: rgba(0, 0, 0, 0.1);
   padding: 25px 60px;
   margin: 0 auto;
+
+  label {
+    color: #7f7f90;
+  }
 `;
 export default Container;

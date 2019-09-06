@@ -132,10 +132,59 @@ export const SeeOffers = styled.button.attrs({
 export const ChooseVehicle = styled.div`
   max-width: 933px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
-export const ChooseType = styled.div``;
-export const Car = styled.div``;
-export const MotorCycle = styled.div``;
-export const TitleCar = styled.h1``;
-export const TitleMotorCycle = styled.h2``;
+
+export const ChooseType = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const Car = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    margin: 0 1rem 0 2rem;
+  }
+`;
+
+export const MotorCycle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    margin: 0 1rem 0 2rem;
+  }
+`;
+
+export const TitleCar = styled.h1`
+  font-size: 2.8rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #b5b5bf;
+
+  small {
+    display: block;
+    font-size: 1.2rem;
+  }
+`;
+
+export const TitleMotorCycle = styled.h2`
+  font-size: 2.8rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #b5b5bf;
+
+  small {
+    display: block;
+    font-size: 1.2rem;
+  }
+`;
+
 export const ButtonSellCar = styled.div``;

@@ -1,4 +1,4 @@
-export const data = [
+export const options = [
   { id: 1, label: 'Opção 1' },
   { id: 2, label: 'Opção 2' },
   { id: 3, label: 'Opção 3' },

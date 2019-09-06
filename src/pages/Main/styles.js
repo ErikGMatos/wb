@@ -168,7 +168,7 @@ export const Veihcles = styled.div`
   padding: 1rem 1rem 1rem 0;
   border-bottom: 3px solid transparent;
   cursor: pointer;
-  transition: border-bottom 0.3s ease-in-out;
+  transition: border-bottom 0.2s ease-in-out;
 
   svg {
     margin: 0 1rem 0 2rem;
@@ -187,4 +187,15 @@ export const TitleVehicles = styled.h1`
   }
 `;
 
-export const ButtonSellCar = styled.div``;
+export const ButtonSellCar = styled.button`
+  border: none;
+  background: none;
+  padding: 1rem 3rem;
+  border: 2px solid #e9b10c;
+  border-radius: 3px;
+  color: #e9b10c;
+  font-weight: bold;
+  &:first-letter {
+    text-transform: capitalize;
+  }
+`;

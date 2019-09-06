@@ -179,8 +179,8 @@ export default class Main extends Component {
             <ContainerSelect>
               <div>
                 <div>
-                  <Select options={null} placeholder="Onde" />
-                  <Select options={null} placeholder="Raio" />
+                  <Select options={[]} placeholder="Onde" />
+                  <Select options={[]} placeholder="Raio" />
                 </div>
                 <Select
                   options={make}
@@ -194,8 +194,8 @@ export default class Main extends Component {
                 />
               </div>
               <div>
-                <Select options={null} placeholder="Ano Desejado" />
-                <Select options={null} placeholder="Faixa de Preço" />
+                <Select options={[]} placeholder="Ano Desejado" />
+                <Select options={[]} placeholder="Faixa de Preço" />
                 <Select
                   options={version}
                   placeholder="Versão"

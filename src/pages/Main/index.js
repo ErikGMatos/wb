@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 
+import { MdChevronRight } from 'react-icons/md';
 import Container from '../../components/Container';
 import Checkbox from '../../components/Checkbox';
 import Select from '../../components/Select';
 import { data } from '../../components/Select/data';
-import { Form, Logo, Header, ContainerSelect, GroupSelect } from './styles';
+import {
+  Form,
+  Logo,
+  Header,
+  ContainerSelect,
+  GroupCheckbox,
+  AdvancedSearch,
+  FilterClear,
+  SeeOffers,
+} from './styles';
 
 export default class Main extends Component {
   state = {
@@ -32,36 +42,51 @@ export default class Main extends Component {
         </Header>
         <Container>
           <Form onSubmit={this.handleSubmit} error={null}>
-            <label htmlFor="new">
-              <Checkbox
-                id="new"
-                name="newCarChecked"
-                checked={newCarChecked}
-                onChange={this.handleInputChange}
-              />
-              Novos
-            </label>
-            <label htmlFor="used">
-              <Checkbox
-                id="used"
-                name="usedCarChecked"
-                checked={usedCarChecked}
-                onChange={this.handleInputChange}
-              />
-              Usados
-            </label>
+            <GroupCheckbox>
+              <label htmlFor="new">
+                <Checkbox
+                  id="new"
+                  name="newCarChecked"
+                  checked={newCarChecked}
+                  onChange={this.handleInputChange}
+                />
+                Novos
+              </label>
+              <label htmlFor="used">
+                <Checkbox
+                  id="used"
+                  name="usedCarChecked"
+                  checked={usedCarChecked}
+                  onChange={this.handleInputChange}
+                />
+                Usados
+              </label>
+            </GroupCheckbox>
+
             <ContainerSelect>
-              <GroupSelect>
+              <div>
                 <Select options={data} />
                 <Select options={data} />
                 <Select options={data} />
-              </GroupSelect>
-              <GroupSelect>
+              </div>
+              <div>
                 <Select options={data} />
                 <Select options={data} />
                 <Select options={data} />
-              </GroupSelect>
+              </div>
             </ContainerSelect>
+
+            <AdvancedSearch>
+              <div>
+                <MdChevronRight size={20} />
+                <a href="#!">Busca avançada</a>
+              </div>
+
+              <div>
+                <FilterClear>Limpar filtros</FilterClear>
+                <SeeOffers>Ver ofertas</SeeOffers>
+              </div>
+            </AdvancedSearch>
           </Form>
         </Container>
       </>

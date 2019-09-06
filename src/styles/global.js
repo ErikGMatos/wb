@@ -27,6 +27,10 @@ export default createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif;
   }
 
+  label {
+    margin-right: 1rem;
+  }
+
   button {
     cursor: pointer;
   }

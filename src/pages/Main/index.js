@@ -17,10 +17,8 @@ import {
   SeeOffers,
   ChooseType,
   ChooseVehicle,
-  Car,
-  MotorCycle,
-  TitleCar,
-  TitleMotorCycle,
+  Veihcles,
+  TitleVehicles,
   ButtonSellCar,
 } from './styles';
 
@@ -33,6 +31,11 @@ export default class Main extends Component {
     modelID: null,
     version: [],
     versionID: null,
+    carOrMotorcycle: [
+      { label: 'carros', active: true },
+      { label: 'motos', active: false },
+    ],
+    active: 0,
   };
 
   // Carregar os dados do localStorage
@@ -77,6 +80,10 @@ export default class Main extends Component {
     this.setState({ [e.name]: e.id });
   };
 
+  handleCarOrMotorcycle = active => {
+    this.setState({ active });
+  };
+
   loadMake = async () => {
     const response = await api.get('/Make');
     const { data } = response;
@@ -118,7 +125,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { error, make, model, version } = this.state;
+    const { error, make, model, version, active, carOrMotorcycle } = this.state;
 
     return (
       <>
@@ -126,21 +133,23 @@ export default class Main extends Component {
           <Logo />
         </Header>
         <ChooseVehicle>
-          <ChooseType>
-            <Car>
-              <FaCarSide size={20} color="#f3123c" />
-              <TitleCar>
-                <small>comprar</small>
-                Carros
-              </TitleCar>
-            </Car>
-            <MotorCycle>
-              <FaMotorcycle size={20} color="#f3123c" />
-              <TitleMotorCycle>
-                <small>comprar</small>
-                Carros
-              </TitleMotorCycle>
-            </MotorCycle>
+          <ChooseType active={active}>
+            {carOrMotorcycle.map((filter, index) => (
+              <Veihcles
+                key={String(index)}
+                onClick={() => this.handleCarOrMotorcycle(index)}
+              >
+                {filter.active ? (
+                  <FaCarSide size={25} color="#999" />
+                ) : (
+                  <FaMotorcycle size={25} color="#999" />
+                )}
+                <TitleVehicles>
+                  <small>comprar</small>
+                  {filter.label}
+                </TitleVehicles>
+              </Veihcles>
+            ))}
           </ChooseType>
           <ButtonSellCar>vender meu carro</ButtonSellCar>
         </ChooseVehicle>

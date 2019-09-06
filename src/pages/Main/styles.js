@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import logoWebMotors from '../../assets/images/webmotors.svg';
 
 export const Form = styled.form``;
@@ -141,41 +141,34 @@ export const ChooseType = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  > div:nth-child(${props => props.active + 1}) {
+    border-bottom: 3px solid #f3123c;
+
+    ${props =>
+      props.active &&
+      css`
+        svg {
+          color: #f3123c!important;
+        }
+      `}
+  }
 `;
 
-export const Car = styled.div`
+export const Veihcles = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 1rem 1rem 0;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: border-bottom 0.3s ease-in-out;
 
   svg {
     margin: 0 1rem 0 2rem;
   }
 `;
 
-export const MotorCycle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  svg {
-    margin: 0 1rem 0 2rem;
-  }
-`;
-
-export const TitleCar = styled.h1`
-  font-size: 2.8rem;
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #b5b5bf;
-
-  small {
-    display: block;
-    font-size: 1.2rem;
-  }
-`;
-
-export const TitleMotorCycle = styled.h2`
+export const TitleVehicles = styled.h1`
   font-size: 2.8rem;
   font-weight: 100;
   text-transform: uppercase;

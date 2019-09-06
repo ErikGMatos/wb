@@ -65,7 +65,7 @@ export default class Main extends Component {
 
             <ContainerSelect>
               <div>
-                <Select options={data} />
+                <Select options={data} placeholder="Select a fruit" />
                 <Select options={data} />
                 <Select options={data} />
               </div>

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import { MdChevronRight } from 'react-icons/md';
 import { FaCarSide, FaMotorcycle } from 'react-icons/fa';
+import { from } from 'rxjs';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
+import { ButtonSellCar, SeeOffers } from '../../components/Button';
 import Select from '../../components/Select';
 import { where, radius, years, price, all } from '../../components/Select/data';
 import api from '../../services/api';
@@ -16,12 +18,10 @@ import {
   GroupCheckbox,
   AdvancedSearch,
   FilterClear,
-  SeeOffers,
   ChooseType,
   ChooseVehicle,
   Veihcles,
   TitleVehicles,
-  ButtonSellCar,
 } from './styles';
 
 export default class Main extends Component {

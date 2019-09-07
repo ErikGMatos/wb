@@ -99,6 +99,10 @@ export const ContainerSelect = styled.div`
       > div:nth-child(3) {
         flex: 0.5;
         margin-right: 0;
+
+        [class$='control'] {
+          padding-left: 4.5rem;
+        }
       }
     }
   }
@@ -145,25 +149,6 @@ export const FilterClear = styled.button.attrs({
   font-size: 1.6rem;
   color: #999;
   margin-right: 4rem;
-`;
-
-export const SeeOffers = styled.button.attrs({
-  type: 'button',
-})`
-  border: none;
-  background: #f3123c;
-  color: #fff;
-  font-size: 1.6rem;
-  padding: 15px 70px;
-  border-radius: 3px;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 8px 12px -8px #f3123c;
-  transition: background 0.15s ease-in-out;
-
-  &:hover {
-    background: #d50b30;
-  }
 `;
 
 export const ChooseVehicle = styled.div`
@@ -221,18 +206,5 @@ export const TitleVehicles = styled.h1`
   small {
     display: block;
     font-size: 1.2rem;
-  }
-`;
-
-export const ButtonSellCar = styled.button`
-  border: none;
-  background: none;
-  padding: 1rem 3rem;
-  border: 2px solid #e9b10c;
-  border-radius: 3px;
-  color: #e9b10c;
-  font-weight: bold;
-  &:first-letter {
-    text-transform: capitalize;
   }
 `;

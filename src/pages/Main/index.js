@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { MdChevronRight } from 'react-icons/md';
 import { FaCarSide, FaMotorcycle } from 'react-icons/fa';
 import Container from '../../components/Container';
+import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
 import Select from '../../components/Select';
 import api from '../../services/api';
 import {
   Form,
-  Logo,
-  Header,
   ContainerSelect,
   GroupCheckbox,
   AdvancedSearch,
@@ -129,9 +128,7 @@ export default class Main extends Component {
 
     return (
       <>
-        <Header>
-          <Logo />
-        </Header>
+        <Header />
         <ChooseVehicle>
           <ChooseType active={active}>
             {carOrMotorcycle.map((filter, index) => (

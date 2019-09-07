@@ -1,13 +1,6 @@
 import styled from 'styled-components';
-import logoWebMotors from '../../assets/images/webmotors.svg';
 
 export const Form = styled.form``;
-
-export const Logo = styled.img.attrs({
-  src: logoWebMotors,
-})`
-  margin: 1rem;
-`;
 
 export const Header = styled.header`
   max-width: 933px;

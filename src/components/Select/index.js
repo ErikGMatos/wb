@@ -10,7 +10,10 @@ const colourStyles = {
     ...styles,
     border: state.isFocused ? '1px solid #666' : '1px solid #b6bac8',
     backgroundColor: '#fff',
+    fontSize: '1.3rem',
     boxShadow: 'none',
+    fontWeight: 'bold',
+    color: '#333!important',
 
     '&:hover': {
       border: '1px solid #b6bac8',
@@ -53,7 +56,6 @@ const ComponentSelect = ({
       <Select
         {...props}
         drop
-        label="Single select"
         options={options}
         styles={colourStyles}
         placeholder={placeholder || 'Selecione'}

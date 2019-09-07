@@ -9,6 +9,6 @@ export const Label = styled.label`
   top: 50%;
   left: 0.5rem;
   transform: translateY(-50%);
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1.3rem;
 `;

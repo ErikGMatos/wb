@@ -23,6 +23,18 @@ export const GroupSelect = styled.div`
 `;
 
 export const ContainerSelect = styled.div`
+  [class$='-indicatorContainer'] {
+    padding: 0 0.3rem;
+
+    svg {
+      color: #333;
+    }
+  }
+
+  [class$='-placeholder'] {
+    color: #333;
+  }
+
   > div {
     display: flex;
     > div {
@@ -53,17 +65,25 @@ export const ContainerSelect = styled.div`
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left-width: 0;
+            padding-left: 3rem;
           }
         }
       }
 
       > div:nth-child(2) {
         flex: 0.25;
+        [class$='control'] {
+          padding-left: 4rem;
+        }
       }
 
       > div:nth-child(3) {
         flex: 0.25;
         margin-right: 0;
+
+        [class$='control'] {
+          padding-left: 4.5rem;
+        }
       }
     }
     &:nth-child(2) {

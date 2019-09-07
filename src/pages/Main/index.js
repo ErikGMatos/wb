@@ -6,7 +6,7 @@ import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
 import Select from '../../components/Select';
-import { where, radius, years, price } from '../../components/Select/data';
+import { where, radius, years, price, all } from '../../components/Select/data';
 import api from '../../services/api';
 import {
   Form,
@@ -95,7 +95,7 @@ export default class Main extends Component {
       name: 'makeID',
     }));
 
-    this.setState({ make: [...newMake] });
+    this.setState({ make: [...all, ...newMake] });
   };
 
   loadModel = async () => {
@@ -109,7 +109,7 @@ export default class Main extends Component {
       name: 'modelID',
     }));
 
-    this.setState({ model: [...newModel] });
+    this.setState({ model: [...all, ...newModel] });
   };
 
   loadVersion = async () => {
@@ -123,7 +123,7 @@ export default class Main extends Component {
       name: 'versionID',
     }));
 
-    this.setState({ version: [...newVersion] });
+    this.setState({ version: [...all, ...newVersion] });
   };
 
   render() {
@@ -199,8 +199,8 @@ export default class Main extends Component {
                 </GroupSelect>
               </div>
               <div>
-                <Select options={years} label="Ano Desejado" />
-                <Select options={price} label="Faixa de Preço" />
+                <Select options={years} placeholder="Ano Desejado" />
+                <Select options={price} placeholder="Faixa de Preço" />
                 <Select
                   options={version}
                   label="Versão"

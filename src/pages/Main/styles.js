@@ -32,7 +32,7 @@ export const ContainerSelect = styled.div`
   }
 
   [class$='-placeholder'] {
-    color: #333;
+    color: #7f7f90;
   }
 
   > div {

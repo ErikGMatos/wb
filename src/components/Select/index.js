@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
+import { FaCaretDown } from 'react-icons/fa';
 
 import { Container, Label } from './styles';
+
+const DropdownIndicator = props => (
+  <components.DropdownIndicator {...props}>
+    <FaCaretDown />
+  </components.DropdownIndicator>
+);
 
 const colourStyles = {
   // estilos do select em si
@@ -21,7 +28,6 @@ const colourStyles = {
   }),
 
   // Retira o caret do Select
-  // dropdownIndicator: styles => ({ ...styles, display: 'none' }),
 
   // Retira a barra separadora do Select
   indicatorSeparator: styles => ({ ...styles, display: 'none' }),
@@ -56,6 +62,7 @@ const ComponentSelect = ({
       <Select
         {...props}
         drop
+        components={{ DropdownIndicator }}
         options={options}
         styles={colourStyles}
         placeholder={placeholder || 'Selecione'}

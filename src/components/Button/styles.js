@@ -8,7 +8,7 @@ export const ButtonSellCar = styled.button`
   border-radius: 0.3rem;
   color: #e9b10c;
   font-weight: bold;
-  transition: background, color 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: background 0.15s ease-in-out;
   &:first-letter {
     text-transform: capitalize;
   }

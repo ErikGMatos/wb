@@ -29,16 +29,16 @@ export default class Main extends Component {
     checkedUsed: false,
     error: false,
     make: [],
-    makeID: null,
     model: [],
-    modelID: null,
     version: [],
-    versionID: null,
+    active: 0,
+    makeID: { id: 0, label: 'Todas' },
+    modelID: { id: 0, label: 'Todos' },
+    versionID: { id: 0, label: 'Todas' },
     carOrMotorcycle: [
       { label: 'carros', active: true },
       { label: 'motos', active: false },
     ],
-    active: 0,
   };
 
   async componentDidMount() {
@@ -81,7 +81,7 @@ export default class Main extends Component {
         versionID: null,
       });
       this.loadVersion();
-    } else {
+    } else if (name === 'all') {
       await this.setState({
         make: [],
         makeID: null,
@@ -98,11 +98,11 @@ export default class Main extends Component {
   removeAllFilters = async () => {
     await this.setState({
       make: [],
-      makeID: null,
+      makeID: { id: 0, label: 'Todas' },
       model: [],
-      modelID: null,
+      modelID: { id: 0, label: 'Todos' },
       version: [],
-      versionID: null,
+      versionID: { id: 0, label: 'Todas' },
       clear: true,
     });
     this.loadMake();

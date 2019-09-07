@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { MdChevronRight } from 'react-icons/md';
 import { FaCarSide, FaMotorcycle } from 'react-icons/fa';
-import { from } from 'rxjs';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
@@ -26,6 +25,8 @@ import {
 
 export default class Main extends Component {
   state = {
+    checkedNew: false,
+    checkedUsed: false,
     error: false,
     make: [],
     makeID: null,
@@ -127,7 +128,16 @@ export default class Main extends Component {
   };
 
   render() {
-    const { error, make, model, version, active, carOrMotorcycle } = this.state;
+    const {
+      error,
+      make,
+      model,
+      version,
+      active,
+      carOrMotorcycle,
+      checkedNew,
+      checkedUsed,
+    } = this.state;
 
     return (
       <>
@@ -159,8 +169,8 @@ export default class Main extends Component {
               <label htmlFor="new">
                 <Checkbox
                   id="new"
-                  name="newCarChecked"
-                  checked
+                  name="checkedNew"
+                  checked={checkedNew}
                   onChange={this.handleInputChange}
                 />
                 Novos
@@ -168,8 +178,8 @@ export default class Main extends Component {
               <label htmlFor="used">
                 <Checkbox
                   id="used"
-                  name="usedCarChecked"
-                  checked
+                  name="checkedUsed"
+                  checked={checkedUsed}
                   onChange={this.handleInputChange}
                 />
                 Usados

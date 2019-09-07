@@ -113,6 +113,7 @@ export const GroupCheckbox = styled.div`
 
   label {
     margin-right: 3em;
+    cursor: pointer;
   }
 `;
 
@@ -157,6 +158,7 @@ export const ChooseVehicle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 4rem;
 `;
 
 export const ChooseType = styled.div`

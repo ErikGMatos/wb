@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
 import { ButtonSellCar, SeeOffers } from '../../components/Button';
 import Select from '../../components/Select';
-import { where, radius, years, price, all } from '../../components/Select/data';
+import { where, radius, years, price } from '../../components/Select/data';
 import api from '../../services/api';
 import {
   Form,
@@ -41,7 +41,6 @@ export default class Main extends Component {
     active: 0,
   };
 
-  // Carregar os dados do localStorage
   async componentDidMount() {
     try {
       this.loadMake();
@@ -53,17 +52,31 @@ export default class Main extends Component {
   componentDidUpdate(_, prevState) {
     const { makeID, modelID } = this.state;
     if (prevState.makeID !== makeID) {
-      this.loadModel();
-      this.removeOption();
+      this.removeOption(makeID);
     }
 
     if (prevState.modelID !== modelID && !!modelID) {
-      this.loadVersion();
+      this.removeOption(modelID);
     }
   }
 
-  removeOption = () => {
-    this.setState({ version: [], versionID: null });
+  removeOption = async obj => {
+    const { name } = obj;
+    if (name === 'makeID') {
+      await this.setState({
+        model: [],
+        modelID: null,
+        version: [],
+        versionID: null,
+      });
+      this.loadModel();
+    } else if (name === 'modelID') {
+      await this.setState({
+        version: [],
+        versionID: null,
+      });
+      this.loadVersion();
+    }
   };
 
   removeAllFilters = () => {
@@ -80,7 +93,7 @@ export default class Main extends Component {
   };
 
   handleSelect = e => {
-    this.setState({ [e.name]: e.id });
+    this.setState({ [e.name]: e });
   };
 
   handleCarOrMotorcycle = active => {
@@ -90,49 +103,57 @@ export default class Main extends Component {
   loadMake = async () => {
     const response = await api.get('/Make');
     const { data } = response;
+    const all = { id: 0, label: 'Todas', name: 'makeID' };
     const newMake = data.map(m => ({
       id: m.ID,
+      value: m.Name,
       label: m.Name,
       name: 'makeID',
     }));
 
-    this.setState({ make: [...all, ...newMake] });
+    this.setState({ make: [all, ...newMake] });
   };
 
   loadModel = async () => {
     const { makeID } = this.state;
 
-    const response = await api.get(`/Model?MakeID=${makeID}`);
+    const response = await api.get(`/Model?MakeID=${makeID.id}`);
     const { data } = response;
+    const all = { id: 0, label: 'Todos', name: 'modelID' };
     const newModel = data.map(m => ({
       id: m.ID,
+      value: m.Name,
       label: m.Name,
       name: 'modelID',
     }));
 
-    this.setState({ model: [...all, ...newModel] });
+    this.setState({ model: [all, ...newModel] });
   };
 
   loadVersion = async () => {
     const { modelID } = this.state;
 
-    const response = await api.get(`/Version?ModelID=${modelID}`);
+    const response = await api.get(`/Version?ModelID=${modelID.id}`);
     const { data } = response;
+    const all = { id: 0, label: 'Todos', name: 'versionID' };
     const newVersion = data.map(m => ({
       id: m.ID,
       label: m.Name,
       name: 'versionID',
     }));
 
-    this.setState({ version: [...all, ...newVersion] });
+    this.setState({ version: [all, ...newVersion] });
   };
 
   render() {
     const {
       error,
       make,
+      makeID,
       model,
+      modelID,
       version,
+      versionID,
       active,
       carOrMotorcycle,
       checkedNew,
@@ -195,6 +216,7 @@ export default class Main extends Component {
                 </GroupSelect>
                 <GroupSelect>
                   <Select
+                    value={makeID}
                     options={make}
                     label="Marca"
                     onChange={this.handleSelect}
@@ -202,6 +224,7 @@ export default class Main extends Component {
                 </GroupSelect>
                 <GroupSelect>
                   <Select
+                    value={modelID}
                     options={model}
                     label="Modelo"
                     onChange={this.handleSelect}
@@ -212,6 +235,7 @@ export default class Main extends Component {
                 <Select options={years} placeholder="Ano Desejado" />
                 <Select options={price} placeholder="Faixa de Preço" />
                 <Select
+                  value={versionID}
                   options={version}
                   label="Versão"
                   onChange={this.handleSelect}

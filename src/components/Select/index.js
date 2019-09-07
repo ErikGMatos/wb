@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 const colourStyles = {
@@ -6,7 +7,7 @@ const colourStyles = {
   control: (styles, state) => ({
     ...styles,
     border: state.isFocused ? '1px solid #666' : '1px solid #b6bac8',
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     boxShadow: 'none',
 
     '&:hover': {
@@ -16,6 +17,7 @@ const colourStyles = {
 
   // Retira o caret do Select
   // dropdownIndicator: styles => ({ ...styles, display: 'none' }),
+
   // Retira a barra separadora do Select
   indicatorSeparator: styles => ({ ...styles, display: 'none' }),
   valueContainer: styles => ({
@@ -25,6 +27,8 @@ const colourStyles = {
 
   // estilos das options
   option: styles => ({
+    ...styles,
+    backgroundColor: '#fff',
     color: '#858585',
     padding: 7,
     textTransform: 'uppercase',
@@ -35,10 +39,11 @@ const colourStyles = {
   }),
 };
 
-export default ({ options, placeholder, onChange, ...props }) => (
+const ComponentSelect = ({ options, placeholder, onChange, ...props }) => (
   <>
     <div>
       <Select
+        {...props}
         drop
         label="Single select"
         options={options}
@@ -50,3 +55,17 @@ export default ({ options, placeholder, onChange, ...props }) => (
     </div>
   </>
 );
+
+ComponentSelect.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])),
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+ComponentSelect.defaultProps = {
+  options: [],
+  placeholder: '',
+  onChange: () => {},
+};
+
+export default ComponentSelect;

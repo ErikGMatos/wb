@@ -54,6 +54,12 @@ export const ContainerSelect = styled.div`
             padding-left: 6rem;
           }
 
+          /* [class$='-IndicatorsContainer'] [class$='-indicatorContainer'] {
+            svg {
+              color: red;
+            }
+          } */
+
           label {
             left: 3rem;
           }

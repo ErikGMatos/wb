@@ -25,6 +25,7 @@ import {
 
 export default class Main extends Component {
   state = {
+    clear: false,
     checkedNew: false,
     checkedUsed: false,
     error: false,
@@ -50,7 +51,11 @@ export default class Main extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    const { makeID, modelID } = this.state;
+    const { makeID, modelID, clear } = this.state;
+
+    if (clear) {
+      this.removeOption({ name: 'all' });
+    }
     if (prevState.makeID !== makeID) {
       this.removeOption(makeID);
     }
@@ -61,6 +66,7 @@ export default class Main extends Component {
   }
 
   removeOption = async obj => {
+    if (!obj) return;
     const { name } = obj;
     if (name === 'makeID') {
       await this.setState({
@@ -76,16 +82,31 @@ export default class Main extends Component {
         versionID: null,
       });
       this.loadVersion();
+    } else {
+      await this.setState({
+        make: [],
+        makeID: null,
+        model: [],
+        modelID: null,
+        version: [],
+        versionID: null,
+        clear: false,
+      });
+      this.loadMake();
     }
   };
 
-  removeAllFilters = () => {
-    this.setState({
+  removeAllFilters = async () => {
+    await this.setState({
+      make: [],
+      makeID: null,
       model: [],
       modelID: null,
       version: [],
       versionID: null,
+      clear: true,
     });
+    this.loadMake();
   };
 
   handleInputChange = e => {
@@ -210,7 +231,7 @@ export default class Main extends Component {
             <ContainerSelect>
               <div>
                 <GroupSelect>
-                  <Select options={where} label="Onde" />
+                  <Select isClearable options={where} label="Onde" />
                   <Select options={radius} label="Raio" />
                   <IconPlace />
                 </GroupSelect>

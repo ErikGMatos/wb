@@ -1,11 +1,18 @@
-export const options = [
-  { id: 1, label: 'Opção 1' },
-  { id: 2, label: 'Opção 2' },
-  { id: 3, label: 'Opção 3' },
-  { id: 4, label: 'Opção 4' },
-  { id: 5, label: 'Opção 5' },
-  { id: 6, label: 'Opção 6' },
-  { id: 7, label: 'Opção 7' },
-  { id: 8, label: 'Opção 8' },
-  { id: 9, label: 'Opção 9' },
+export const where = [
+  { id: 1, label: 'São José dos Campos' },
+  { id: 2, label: 'São Paulo' },
+];
+
+export const radius = [{ id: 1, label: '100km' }, { id: 2, label: '50km' }];
+
+export const years = [
+  { id: 1, label: '2020' },
+  { id: 2, label: '2019' },
+  { id: 3, label: '2018' },
+];
+
+export const price = [
+  { id: 1, label: 'R$30.000 à R$40.000' },
+  { id: 2, label: 'R$40.000 à R$50.000' },
+  { id: 3, label: 'R$50.000 à R$60.000' },
 ];

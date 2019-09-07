@@ -6,7 +6,7 @@ const Container = styled.main`
   background: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1);
-  padding: 25px 60px;
+  padding: 20px 50px;
   margin: 0 auto;
 
   label {

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 
+import { Container, Label } from './styles';
+
 const colourStyles = {
   // estilos do select em si
   control: (styles, state) => ({
@@ -39,9 +41,15 @@ const colourStyles = {
   }),
 };
 
-const ComponentSelect = ({ options, placeholder, onChange, ...props }) => (
+const ComponentSelect = ({
+  options,
+  placeholder,
+  onChange,
+  label,
+  ...props
+}) => (
   <>
-    <div>
+    <Container>
       <Select
         {...props}
         drop
@@ -51,20 +59,22 @@ const ComponentSelect = ({ options, placeholder, onChange, ...props }) => (
         placeholder={placeholder || 'Selecione'}
         onChange={onChange}
       />
-      <label>Marca</label>
-    </div>
+      {label && <Label>{label}</Label>}
+    </Container>
   </>
 );
 
 ComponentSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])),
   placeholder: PropTypes.string,
+  label: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 ComponentSelect.defaultProps = {
   options: [],
   placeholder: '',
+  label: '',
   onChange: () => {},
 };
 

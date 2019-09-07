@@ -6,10 +6,13 @@ import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
 import Select from '../../components/Select';
+import { where, radius, years, price } from '../../components/Select/data';
 import api from '../../services/api';
 import {
   Form,
   ContainerSelect,
+  GroupSelect,
+  IconPlace,
   GroupCheckbox,
   AdvancedSearch,
   FilterClear,
@@ -175,27 +178,32 @@ export default class Main extends Component {
 
             <ContainerSelect>
               <div>
-                <div>
-                  <Select options={[]} placeholder="Onde" />
-                  <Select options={[]} placeholder="Raio" />
-                </div>
-                <Select
-                  options={make}
-                  placeholder="Marca"
-                  onChange={this.handleSelect}
-                />
-                <Select
-                  options={model}
-                  placeholder="Modelo"
-                  onChange={this.handleSelect}
-                />
+                <GroupSelect>
+                  <Select options={where} label="Onde" />
+                  <Select options={radius} label="Raio" />
+                  <IconPlace />
+                </GroupSelect>
+                <GroupSelect>
+                  <Select
+                    options={make}
+                    label="Marca"
+                    onChange={this.handleSelect}
+                  />
+                </GroupSelect>
+                <GroupSelect>
+                  <Select
+                    options={model}
+                    label="Modelo"
+                    onChange={this.handleSelect}
+                  />
+                </GroupSelect>
               </div>
               <div>
-                <Select options={[]} placeholder="Ano Desejado" />
-                <Select options={[]} placeholder="Faixa de Preço" />
+                <Select options={years} label="Ano Desejado" />
+                <Select options={price} label="Faixa de Preço" />
                 <Select
                   options={version}
-                  placeholder="Versão"
+                  label="Versão"
                   onChange={this.handleSelect}
                 />
               </div>

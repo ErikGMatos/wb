@@ -1,10 +1,25 @@
 import styled from 'styled-components';
 
+import Place from '../../assets/icons/icon-location.svg';
+
 export const Form = styled.form``;
+
+export const IconPlace = styled.img.attrs({
+  src: Place,
+})`
+  position: absolute;
+  top: 50%;
+  left: 0.4rem;
+  transform: translateY(-50%);
+`;
 
 export const Header = styled.header`
   max-width: 933px;
   margin: 0 auto;
+`;
+
+export const GroupSelect = styled.div`
+  position: relative;
 `;
 
 export const ContainerSelect = styled.div`
@@ -24,6 +39,11 @@ export const ContainerSelect = styled.div`
           [class$='control'] {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+            padding-left: 6rem;
+          }
+
+          label {
+            left: 3rem;
           }
         }
 
@@ -66,6 +86,10 @@ export const ContainerSelect = styled.div`
 
 export const GroupCheckbox = styled.div`
   margin: 1rem 0;
+
+  label {
+    margin-right: 3em;
+  }
 `;
 
 export const AdvancedSearch = styled.div`

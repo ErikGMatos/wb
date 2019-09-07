@@ -1,3 +1,1 @@
-import { ButtonSellCar, SeeOffers } from './styles';
-
-export { ButtonSellCar, SeeOffers };
+export { ButtonSellCar, SeeOffers, FilterClear } from './styles';

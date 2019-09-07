@@ -24,7 +24,7 @@ export const GroupSelect = styled.div`
 
 export const ContainerSelect = styled.div`
   [class$='-indicatorContainer'] {
-    padding: 0 0.3rem;
+    padding: 0 0.3rem 0 0;
 
     svg {
       color: #333;
@@ -54,14 +54,12 @@ export const ContainerSelect = styled.div`
             padding-left: 6rem;
           }
 
-          /* [class$='-IndicatorsContainer'] [class$='-indicatorContainer'] {
-            svg {
-              color: red;
-            }
-          } */
-
           label {
             left: 3rem;
+          }
+
+          @media only screen and (max-width: 601px) {
+            flex: 0.6;
           }
         }
 
@@ -72,6 +70,10 @@ export const ContainerSelect = styled.div`
             border-bottom-left-radius: 0;
             border-left-width: 0;
             padding-left: 3rem;
+          }
+
+          @media only screen and (max-width: 601px) {
+            flex: 0.4;
           }
         }
       }
@@ -111,6 +113,14 @@ export const ContainerSelect = styled.div`
         }
       }
     }
+
+    @media only screen and (max-width: 601px) {
+      flex-direction: column;
+
+      > div {
+        margin: 1rem 0 !important;
+      }
+    }
   }
 `;
 
@@ -134,28 +144,38 @@ export const AdvancedSearch = styled.div`
     font-size: 1.6rem;
     font-weight: bold;
     text-transform: capitalize;
+
+    @media only screen and (max-width: 601px) {
+      font-size: 1.3rem;
+    }
   }
 
   svg {
     color: #f3123c;
     margin-left: -0.4rem;
+
+    @media only screen and (max-width: 601px) {
+      margin-left: -0.7rem;
+    }
   }
 
   > div {
     display: flex;
     align-items: center;
     margin-top: 1rem;
-  }
-`;
 
-export const FilterClear = styled.button.attrs({
-  type: 'button',
-})`
-  border: none;
-  background: none;
-  font-size: 1.6rem;
-  color: #999;
-  margin-right: 4rem;
+    @media only screen and (max-width: 601px) {
+      &:nth-child(2) {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 601px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const ChooseVehicle = styled.div`
@@ -165,6 +185,12 @@ export const ChooseVehicle = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 4rem;
+
+  @media only screen and (max-width: 601px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;
+  }
 `;
 
 export const ChooseType = styled.div`
@@ -189,6 +215,9 @@ export const ChooseType = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 601px) {
+    width: 100%;
+  }
 `;
 
 export const Veihcles = styled.div`
@@ -203,6 +232,11 @@ export const Veihcles = styled.div`
   svg {
     margin: 0 1rem 0 2rem;
   }
+
+  @media only screen and (max-width: 601px) {
+    width: 50%;
+    justify-content: center;
+  }
 `;
 
 export const TitleVehicles = styled.h1`
@@ -214,5 +248,9 @@ export const TitleVehicles = styled.h1`
   small {
     display: block;
     font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: 601px) {
+    font-size: 2rem;
   }
 `;

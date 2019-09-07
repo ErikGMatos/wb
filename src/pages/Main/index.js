@@ -5,7 +5,7 @@ import { FaCarSide, FaMotorcycle } from 'react-icons/fa';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Checkbox from '../../components/Checkbox';
-import { ButtonSellCar, SeeOffers } from '../../components/Button';
+import { ButtonSellCar, SeeOffers, FilterClear } from '../../components/Button';
 import Select from '../../components/Select';
 import { where, radius, years, price } from '../../components/Select/data';
 import api from '../../services/api';
@@ -16,7 +16,6 @@ import {
   IconPlace,
   GroupCheckbox,
   AdvancedSearch,
-  FilterClear,
   ChooseType,
   ChooseVehicle,
   Veihcles,

@@ -10,7 +10,7 @@ const colourStyles = {
     ...styles,
     border: state.isFocused ? '1px solid #666' : '1px solid #b6bac8',
     backgroundColor: '#fff',
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
     boxShadow: 'none',
     fontWeight: 'bold',
     color: '#333!important',

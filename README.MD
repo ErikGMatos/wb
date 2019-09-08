@@ -13,7 +13,7 @@
 Clone o repositório e rode as tarefas:
 
     $ git clone https://github.com/ErikGMatos/wb.git
-    $ cd quero && yarn install && yarn dev
+    $ cd wb && yarn install && yarn dev
     $ o projeto estara rodando na porta 3000
 
 Build de produção:

@@ -226,7 +226,6 @@ export default class Main extends Component {
                 Usados
               </label>
             </GroupCheckbox>
-
             <ContainerSelect>
               <div>
                 <GroupSelect>
@@ -262,13 +261,11 @@ export default class Main extends Component {
                 />
               </div>
             </ContainerSelect>
-
             <AdvancedSearch>
               <div>
                 <MdChevronRight size={20} />
                 <a href="#!">Busca avançada</a>
               </div>
-
               <div>
                 <FilterClear onClick={this.removeAllFilters}>
                   Limpar filtros

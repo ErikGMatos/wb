@@ -52,7 +52,7 @@ export const ContainerSelect = styled.div`
     &:nth-child(1) {
       > div:nth-child(1) {
         display: flex;
-        flex: 0.5;
+        width: 50%;
         margin-left: 0;
 
         > div:nth-child(1) {
@@ -85,17 +85,21 @@ export const ContainerSelect = styled.div`
             flex: 0.4;
           }
         }
+
+        @media only screen and (max-width: 601px) {
+          width: 100%;
+        }
       }
 
       > div:nth-child(2) {
-        flex: 0.25;
+        flex: 0.5;
         [class$='control'] {
           padding-left: 4rem;
         }
       }
 
       > div:nth-child(3) {
-        flex: 0.25;
+        flex: 0.5;
         margin-right: 0;
 
         [class$='control'] {

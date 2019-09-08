@@ -67,6 +67,7 @@ const ComponentSelect = ({
         styles={colourStyles}
         placeholder={placeholder || 'Selecione'}
         onChange={onChange}
+        maxMenuHeight={210}
       />
       {label && <Label>{label}</Label>}
     </Container>

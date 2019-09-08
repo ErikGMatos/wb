@@ -23,6 +23,20 @@ export const GroupSelect = styled.div`
 `;
 
 export const ContainerSelect = styled.div`
+  [class$='-menu'] {
+    top: 3.4rem;
+    border: 1px solid #b6bac8;
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  [class$='-menu'] > div::-webkit-scrollbar {
+    width: 1.05rem;
+  }
+  [class$='-menu'] > div::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #b5b5bf;
+  }
   [class$='-indicatorContainer'] {
     padding: 0 0.3rem 0 0;
 

@@ -17,12 +17,12 @@ export default createGlobalStyle`
   }
 
   body {
-    background:#f3f5f8;
+    background:${props => props.theme.body};
     -webkit-font-smoothing: antialiased !important;
   }
 
   body, input, button {
-    color:#222;
+    color:${props => props.theme.black};
     font-size: 1.4rem;
     font-family: Arial, Helvetica, sans-serif;
   }

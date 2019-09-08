@@ -21,19 +21,19 @@ export const ChooseType = styled.div`
   align-items: center;
 
   svg {
-    color: #b5b5bf;
+    color: ${props => props.theme.lightGray};
   }
   > div:nth-child(${props => props.active + 1}) {
-    border-bottom: 3px solid #f3123c;
+    border-bottom: 3px solid ${props => props.theme.primary};
 
     svg {
-      color: #f3123c;
+      color: ${props => props.theme.primary};
     }
 
     h1 {
-      color: #f3123c;
+      color: ${props => props.theme.primary};
       small {
-        color: #b5b5bf;
+        color: ${props => props.theme.lightGray};
       }
     }
   }
@@ -65,7 +65,7 @@ export const TitleVehicles = styled.h1`
   font-size: 2.8rem;
   font-weight: 100;
   text-transform: uppercase;
-  color: #b5b5bf;
+  color: ${props => props.theme.lightGray};
 
   small {
     display: block;

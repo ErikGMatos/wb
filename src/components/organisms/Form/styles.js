@@ -20,7 +20,7 @@ export const GroupSelect = styled.div`
 export const ContainerSelect = styled.div`
   [class$='-menu'] {
     top: 3.4rem;
-    border: 1px solid #b6bac8;
+    border: 1px solid ${props => props.theme.borderList};
     border-top: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -30,7 +30,7 @@ export const ContainerSelect = styled.div`
   }
   [class$='-menu'] > div::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: #b5b5bf;
+    background: ${props => props.theme.lightGray};
   }
   [class$='-indicatorContainer'] {
     padding: 0 0.3rem 0 0;
@@ -149,7 +149,7 @@ export const AdvancedSearch = styled.div`
 
   a {
     text-decoration: none;
-    color: #f3123c;
+    color: ${props => props.theme.primary};
     font-size: 1.6rem;
     font-weight: bold;
     text-transform: capitalize;
@@ -160,7 +160,7 @@ export const AdvancedSearch = styled.div`
   }
 
   svg {
-    color: #f3123c;
+    color: ${props => props.theme.primary};
     margin-left: -0.4rem;
 
     @media only screen and (max-width: 601px) {

@@ -7,7 +7,7 @@ export const CheckboxContainer = styled.div`
 
 export const Icon = styled.svg`
   fill: none;
-  stroke: #f3123c;
+  stroke: ${props => props.theme.primary};
   stroke-width: 3px;
 `;
 
@@ -31,7 +31,7 @@ export const StyledCheckbox = styled.div`
   margin: 0 0.9rem 0 0;
   background: #fff;
   border-radius: 2px;
-  border: 1px solid #b5b5bf;
+  border: 1px solid ${props => props.theme.lightGray};
   transition: all 150ms;
 
   ${Icon} {

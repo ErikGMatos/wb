@@ -1,14 +1,18 @@
 import React from 'react';
 
-import Routes from './routes';
+import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
+import { theme } from './styles/constants';
+import Routes from './routes';
 
 function App() {
   return (
-    <>
-      <Routes />
-      <GlobalStyles />
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Routes />
+      </>
+    </ThemeProvider>
   );
 }
 

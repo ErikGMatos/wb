@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -29,4 +29,4 @@ Checkbox.defaultProps = {
   checked: false,
 };
 
-export default Checkbox;
+export default memo(Checkbox);

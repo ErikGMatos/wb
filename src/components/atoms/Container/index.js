@@ -15,7 +15,7 @@ const Container = styled.main`
 
   @media only screen and (max-width: 601px) {
     padding: 2rem 1rem;
-    height: auto ;
+    height: auto;
   }
 `;
 export default Container;

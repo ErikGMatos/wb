@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import logoWebMotors from '../../assets/images/webmotors.svg';
+import logoWebMotors from '../../../assets/images/webmotors.svg';
 
 export const Container = styled.header`
   max-width: 933px;

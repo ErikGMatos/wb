@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { MdChevronRight } from 'react-icons/md';
 import Checkbox from '../../atoms/Checkbox';
@@ -225,7 +226,7 @@ export default class Main extends Component {
           <AdvancedSearch>
             <div>
               <MdChevronRight size={20} />
-              <a href="#!">Busca avançada</a>
+              <Link to="/">Busca avançada</Link>
             </div>
             <div>
               <FilterClear onClick={this.removeAllFilters}>

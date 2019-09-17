@@ -31,7 +31,7 @@ export default createGlobalStyle`
     margin-right: 1rem;
   }
 
-  button {
+  button, select {
     cursor: pointer;
   }
 `;
